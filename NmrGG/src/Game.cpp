@@ -17,13 +17,15 @@ void Game::Run(){
 	int userGuess = 0;
 	std::string playAgain = "";
 
-	while (uGuesses > 0){
+	while (true){
 		std::cout << hiddenNmr << "\n";
 		std::cout << "Your guess: ";
 		std::cin >> userGuess;
 
 		if (userGuess == hiddenNmr) {
 			wins++;
+			std::cout << "\x1B[2J\x1B[H";
+			std::cout << "YOU WON!!!\n";
 			std::cout << "Play again? y/n: ";
 			std::cin >> playAgain;
 			if (playAgain == "y") {
@@ -36,24 +38,35 @@ void Game::Run(){
 			
 		}
 		else if (userGuess < hiddenNmr) {
+			uGuesses -= 1;
 			ConsoleSetup();
 			std::cout << "Higher than that!\n";
-			uGuesses -= 1;
 		}
 		else if (userGuess > hiddenNmr) {
+			uGuesses -= 1;
 			ConsoleSetup();
 			std::cout << "Lower than that!\n";
-			uGuesses -= 1;
+		}
+		if (uGuesses == 0) {
+			std::cout << "\x1B[2J\x1B[H";
+			std::cout << "You lost :(\nPlay again? y/n: ";
+			std::cin >> playAgain;
+			if (playAgain == "y") {
+				hiddenNmr = GameReset();
+			}
+			else
+			{
+				break;
+			}
 		}
 	}
-
-
 }
 
 void Game::ConsoleSetup() {
 	std::cout << "\x1B[2J\x1B[H";
 	std::cout << "Guesses left: " << uGuesses << "\n" << "Rounds won: " << wins << "\n";
 }
+
 int Game::GameReset() {
 	std::srand(time(0));
 	int hiddenNmr = std::rand() % nmr;
