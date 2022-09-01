@@ -2,14 +2,17 @@
 #include <random>
 #include <iostream>
 
-Game::Game(int nmrGuesses, int nmrNmr) {
-	guesses = nmrGuesses;
-	nmr = nmrNmr;
+Game::Game() {
+	std::cout << "How many guesses do you want: ";
+	std::cin >> guesses;
+	std::cout << "The hidden number shall be between 0 and: ";
+	std::cin >> nmr;
 }
 
 void Game::Run(){
 	std::srand(time(0));
-	std::cout << std::rand() % nmr << "\n";
+	int hiddenNmr = std::rand() % nmr;
+
 }
 
 void Game::ConsoleSetup() {

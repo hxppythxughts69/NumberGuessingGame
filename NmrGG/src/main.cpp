@@ -1,6 +1,8 @@
 #include "Game.h"
 
 int main() {
-	Game game(5, 100);
+
+
+	Game game;
 	game.Run();
 }

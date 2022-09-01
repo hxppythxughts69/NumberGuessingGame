@@ -3,7 +3,7 @@
 
 class Game {
 public:
-	Game(int nmrGuesses, int nmrNmr);
+	Game();
 
 	void ConsoleSetup();
 	void Run();
