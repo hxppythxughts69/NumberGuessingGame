@@ -49,7 +49,7 @@ void Game::Run(){
 		}
 		if (uGuesses == 0) {
 			std::cout << "\x1B[2J\x1B[H";
-			std::cout << "You lost :(\nPlay again? y/n: ";
+			std::cout << "You lost :(\n" << "The correct number was: " << hiddenNmr << "\nPlay again? y/n: ";
 			std::cin >> playAgain;
 			if (playAgain == "y") {
 				hiddenNmr = GameReset();
