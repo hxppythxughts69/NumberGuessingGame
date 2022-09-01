@@ -5,6 +5,7 @@
 
 
 Game::Game() {
+	std::cout << "Welcome to Number Guessing Game! In this game you guess numbers no way! First you input how many guesses you want, then between which numbers the hidden number shall be and the you guess away! Have fun!\n";
 	std::cout << "How many guesses do you want: ";
 	std::cin >> guesses;
 	uGuesses = guesses;
@@ -18,7 +19,6 @@ void Game::Run(){
 	std::string playAgain = "";
 
 	while (true){
-		std::cout << hiddenNmr << "\n";
 		std::cout << "Your guess: ";
 		std::cin >> userGuess;
 
